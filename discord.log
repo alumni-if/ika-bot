@@ -6,3 +6,42 @@
 [2024-10-05 12:34:47] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 126c92c5e9725738c2599c4222d2ca1a).
 [2024-10-05 12:35:40] [INFO    ] discord.client: logging in using static token
 [2024-10-05 12:35:42] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ee1cbc277e7ddc4805c5f9934a0ed1a9).
+[2024-10-05 15:40:16] [INFO    ] discord.client: logging in using static token
+[2024-10-05 15:40:17] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 84c45a9fcc6dd90a58690930000bf07e).
+[2024-10-05 15:40:47] [INFO    ] discord.client: logging in using static token
+[2024-10-05 15:40:49] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5ce5c0cec3fce74872893e41b0105428).
+[2024-10-05 15:42:09] [INFO    ] discord.client: logging in using static token
+[2024-10-05 15:42:10] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: e0a823829cdb17cc0f0da434cbba436c).
+[2024-10-05 15:42:46] [INFO    ] discord.client: logging in using static token
+[2024-10-05 15:42:48] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 83124f273222aba41e1caba775ec6e92).
+[2024-10-05 15:44:39] [INFO    ] discord.client: logging in using static token
+[2024-10-05 15:44:41] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b11b898356c3d664771c4c599296c535).
+[2024-10-05 17:01:56] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session b11b898356c3d664771c4c599296c535.
+[2024-10-06 07:10:36] [INFO    ] discord.client: logging in using static token
+[2024-10-06 07:10:38] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ff8137085baa2227fc9ca9c847363aca).
+[2024-10-06 07:52:17] [INFO    ] discord.client: logging in using static token
+[2024-10-06 07:52:19] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ff61078befb4a4651f101c918cecff20).
+[2024-10-06 08:26:52] [INFO    ] discord.client: logging in using static token
+[2024-10-06 08:26:54] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ec20b7b3849445bac065b243ecae67f1).
+[2024-10-06 08:27:11] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'phitimes'
+Traceback (most recent call last):
+  File "C:\Users\PUSTIK\anaconda3\lib\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(interaction, **params)  # type: ignore
+  File "c:\Users\PUSTIK\Documents\dev\ika-bot\main.py", line 21, in phitimes_command
+    await interaction.response.send_message(f'Phi times {arg1} times {arg2} = {math.pi * arg1 * arg2}')
+TypeError: can't multiply sequence by non-int of type 'float'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PUSTIK\anaconda3\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\PUSTIK\anaconda3\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\Users\PUSTIK\anaconda3\lib\site-packages\discord\app_commands\commands.py", line 872, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'phitimes' raised an exception: TypeError: can't multiply sequence by non-int of type 'float'
+[2024-10-06 08:27:59] [INFO    ] discord.client: logging in using static token
+[2024-10-06 08:28:01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b806fbe2fb4f1e7a93719c86d540f33a).
+[2024-10-06 08:29:09] [INFO    ] discord.client: logging in using static token
+[2024-10-06 08:29:11] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b953e754942bd61f9640ebe0b1d0b4c0).

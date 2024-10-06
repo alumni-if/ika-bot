@@ -4,13 +4,15 @@ import logging.handlers
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
 
+# The formatter for the log messages
+dt_fmt = '%Y-%m-%d %H:%M:%S'
+formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
+
 # Create a stream handler for the console
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.DEBUG)
 
 # Set the formatter for the console handler
-dt_fmt = '%Y-%m-%d %H:%M:%S'
-formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
 console_handler.setFormatter(formatter)
 
 # Add the console handler to the logger

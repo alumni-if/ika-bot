@@ -1,6 +1,15 @@
 import discord
+from discord.ext import commands
 
-class MyCustomClient(discord.Client):
+class MyCustomClient(commands.Bot):
+    
+    def __init__(self, guild_id, *args, **kwargs) :
+        self.guild_id = guild_id
+        self.guild = discord.Object(id=guild_id)
+        
+        # Forward all arguments, and keyword-only arguments to commands.Bot
+        super().__init__(*args, **kwargs)
+        
     """
     Custom Client
 
@@ -16,6 +25,13 @@ class MyCustomClient(discord.Client):
         """
         print(f'Logged on as {self.user}!')
 
+        # Sync our Bot commands
+        try:
+            synced = await self.tree.sync(guild=self.guild)
+            print(f'Synced {len(synced)} command(s) to {self.guild_id}!')
+        except Exception as e:
+            print(f"Error syncing commands: {e}")
+
     async def on_message(self, message):
         """
         Called when a Message is created and sent.
@@ -23,7 +39,13 @@ class MyCustomClient(discord.Client):
         Prints to console the message author and content.
         """
         # print(f'Message from {message.author}: {message.content}')
-        pass
+        if message.author == self.user:
+            return
+        
+        if message.content.startswith('hello'):
+            userId = message.author.id
+            usernameDiscord = message.author.name
+            await message.channel.send(f"Hello too {message.author.mention}. userid: {userId}, discord username: {usernameDiscord}")
 
     async def on_member_join(self, member):
         """
