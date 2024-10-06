@@ -1,5 +1,7 @@
 import discord
 from discord.ext import commands
+from helpers.cogs_helper import load_cogs
+from cogs.commands import MyCommands
 
 class MyCustomClient(commands.Bot):
     
@@ -18,19 +20,43 @@ class MyCustomClient(commands.Bot):
     """
     async def on_ready(self):
         """
-        Called after the Client is connected and ready, successfully logged in and
-        has completed the initial handshake with the Discord API.
+        Called after the bot is ready.
 
-        Prints to console the logged on user.
+        Prints a message to console, when the bot is ready.
+        Syncs all slash commands to the guild, where the bot is invited.
+        Syncs all global slash commands.
+
+        Loads all cogs from the 'cogs' directory.
         """
+        
         print(f'Logged on as {self.user}!')
 
-        # Sync our Bot commands
+        # Cogs load
+        await load_cogs(self)
+
+        # Sync cogs
+        try:
+            synced_cogs = await self.tree.sync()
+            print(f'Synced Cogs {len(synced_cogs)} command(s) to {self.guild_id}!')
+        except Exception as e:
+            print(f"Error syncing Cogs commands: {e}")
+
+        # Sync our Bot commands from `@client.tree.command`
         try:
             synced = await self.tree.sync(guild=self.guild)
             print(f'Synced {len(synced)} command(s) to {self.guild_id}!')
         except Exception as e:
             print(f"Error syncing commands: {e}")
+            
+        # Sync our Global commands
+        if False:
+            try:
+                synced = await self.tree.sync()
+                print(f'Synced {len(synced)} global command(s)!')
+            except Exception as e:
+                print(f"Error syncing commands: {e}")
+        
+        print(f"Total Commands: {len(synced_cogs + synced)}")
 
     async def on_message(self, message):
         """
