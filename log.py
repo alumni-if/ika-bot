@@ -1,3 +1,4 @@
+import os
 import logging
 import logging.handlers
 
@@ -18,9 +19,14 @@ console_handler.setFormatter(formatter)
 # Add the console handler to the logger
 logger.addHandler(console_handler)
 
+# Create the directory for the log file if it doesn't exist
+log_dir = 'logs'
+if not os.path.exists(log_dir):
+    os.makedirs(log_dir)
+
 # Create a rotating file handler for the log file
 file_handler = logging.handlers.RotatingFileHandler(
-    filename='discord.log',
+    filename=os.path.join(log_dir, 'discord.log'),
     encoding='utf-8',
     maxBytes=32 * 1024 * 1024,  # 32 MiB
     backupCount=5,  # Rotate through 5 files
