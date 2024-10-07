@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 from helpers.cogs_helper import load_cogs
-from cogs.commands import MyCommands
 
 class MyCustomClient(commands.Bot):
     

@@ -12,6 +12,7 @@ class MyCommands(commands.Cog):
     #   # Docs: https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#discord.ext.commands.Cog.cog_check
     #   return ctx.guild.id == self.bot.guild_id
 
+    # @app_commands is slashCommand generator.
     @app_commands.command(name='greeting', description='Send a greeting message')
     async def greeting(self, interaction: discord.Interaction):
         await interaction.response.send_message(f'Halo {interaction.user.mention}! Selamat Datang di Server Discord IKA Informatika Universitas Mataram. Nice to meet you!')
