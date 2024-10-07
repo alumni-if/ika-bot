@@ -21,6 +21,6 @@ async def ping(interaction: discord.Interaction):
     await interaction.response.send_message(f'Ping Server is: {round(client.latency * 1000)}ms')
 
 client.run(
-    'MTI5MTg5OTc3NTMyMjQyNzQyMw.GZ3BRj.IRgesnYu5wlEg052fKjQU7GqpgNJNWRJdv8beQ',
+    os.getenv('MTI5MTg5OTc3NTMyMjQyNzQyMw'),
     log_handler=log.console_handler,
 )
